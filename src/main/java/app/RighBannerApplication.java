@@ -13,7 +13,7 @@ public class RighBannerApplication {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(
                 RighBannerApplication.class);
-        app.setBanner(new RichBanner("hajiboot.png"));
+        app.setBanner(new RichBanner());
         app.run(args);
     }
 

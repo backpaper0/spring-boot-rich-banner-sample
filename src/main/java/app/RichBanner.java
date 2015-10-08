@@ -4,7 +4,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.Objects;
 
 import javax.imageio.ImageIO;
 
@@ -14,17 +13,14 @@ import org.springframework.core.env.Environment;
 public class RichBanner implements Banner {
 
     private final int[] colors;
-    private final String name;
-
-    public RichBanner(String name) {
-        this.name = Objects.requireNonNull(name);
-    }
 
     @Override
     public void printBanner(Environment environment, Class<?> sourceClass,
             PrintStream out) {
+        String location = environment.getProperty("richbanner.location",
+                "banner.png");
         try (InputStream in = getClass().getClassLoader()
-                .getResourceAsStream(name)) {
+                .getResourceAsStream(location)) {
             BufferedImage img = ImageIO.read(in);
             for (int y = 0; y < img.getHeight(); y++) {
                 for (int x = 0; x < img.getWidth(); x++) {
