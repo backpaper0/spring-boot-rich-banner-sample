@@ -7,6 +7,14 @@
 
 `richbanner.location` パラメータを変更してください。
 
+例：うらがみブート
+
+```
+java -jar build/libs/spring-boot-rich-banner-sample.jar --richbanner.location=backpaper0.png
+```
+
+![うらがみブートの実行結果](uragami-boot.png)
+
 ## 既知の問題
 
 `gradle bootRun` だと思いっきり表示が崩れる。
